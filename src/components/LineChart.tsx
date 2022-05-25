@@ -1,15 +1,10 @@
 import { Chart as ChartJS, registerables as Registerables } from "chart.js";
 import { Chart } from "react-chartjs-2";
+import { dateFormatter } from "../helper/dateFormatter";
 
 type Props = {
   data: Record<any, any>;
   mode: "cases" | "deaths" | "recovered";
-};
-
-const dateFormatter = (dateStr: string) => {
-  let sub = new Date(dateStr).toDateString().split(" ").slice(1);
-  const formattedDate = sub[1] + " " + sub[0] + " " + sub[2];
-  return formattedDate;
 };
 
 ChartJS.register(...Registerables);
